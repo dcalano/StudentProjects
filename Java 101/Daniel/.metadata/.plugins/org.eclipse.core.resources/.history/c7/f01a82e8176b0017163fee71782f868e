@@ -1,0 +1,20 @@
+package dannyplayschess;
+
+import javax.swing.ImageIcon;
+
+public class Piece {
+
+	boolean team; //TRUE = USER TEAM, FALSE = CPU
+	String name;
+	short xpos, ypos;
+	
+	public Piece(short x, short y) {
+		this.xpos = x;
+		this.ypos = y;
+	}
+	
+	public ImageIcon getImgIcon() {
+		return null;
+	}
+	
+}

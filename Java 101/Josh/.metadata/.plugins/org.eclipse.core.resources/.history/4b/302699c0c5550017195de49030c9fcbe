@@ -1,0 +1,74 @@
+import java.util.Scanner;
+import java.util.Random;
+
+public class Adventure {
+	public static void checkDeath(){
+		if (playerHealth <= 0) {
+			System.out.println("Oh, no! Looks like you've run out of health!");
+			System.out.println("G A M E  O V E R");
+		}
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int playerLevel = 1;
+		String playerName = "Horatio";
+		double playerHealth = 10.0;
+		Scanner userInpt = new Scanner(System.in);
+		System.out.println("What is your character's name?");
+		playerName = userInpt.nextLine();
+		System.out.println("Welcome, " + playerName + ".");
+		System.out.println("Before you lies a deep, dark, forest.");
+		System.out.println("Do you enter? (Y/N)");
+		String temp = userInpt.nextLine();
+		while (!temp.equals("Y")) {
+			System.out.println("I don't think I heard you right.");
+			System.out.println("What I SAID was, DO YOU ENTER?");
+			System.out.println("HINT: THE CORRECT ANSWER IS 'Y'.");
+			temp = userInpt.nextLine();
+		}
+		System.out.println("Now, THAT'S what I like to hear.");
+		System.out.println(playerName + " has reached level " + playerLevel + "!");
+		System.out.println("As you enter, you follow a winding dirt path that leads you into a small clearing.");
+		System.out.println("There's a strange bottle full of liquid, labeled with nothing but a smiley face.");
+		System.out.println("Do you drink it? (Y/N)");
+		temp = userInpt.nextLine();
+		while (!temp.equals("Y") && !temp.equals("N")) {
+			System.out.println("Invalid entry. Please respond with either 'Y' or 'N'. (Case sensitive!)");
+			System.out.println("Do you drink it? (Y/N)");
+			temp = userInpt.nextLine();
+		}
+		if (temp.equals("Y")) {
+			System.out.println("Are you kidding?");
+			System.out.println("NEVER DRINK LIQUID FROM SUSPICIOUS BOTTLES IN DARK FORESTS.");
+			playerHealth = 0.0;
+			System.out.println("I hope you've learned your lesson now. The end.");
+			System.out.println("G A M E  O V E R");
+			System.exit(0);
+		} else {
+			System.out.println("Good job. Drinking suspicious bottles is never a good idea.");
+			System.out.println("...except in, like, every video game ever.");
+			System.out.println("Well, not this time. ANYWAYS.");
+			playerLevel++;
+			System.out
+					.println(playerName + " has risen to level " + playerLevel + " for making (mostly) good choices.");
+		}
+		System.out.println(playerName + ", look out! You just stepped on a weird-looking plank.");
+		Random randomGenerator = new Random();
+		boolean trap = randomGenerator.nextBoolean();
+		if (trap) {
+			System.out.println("Uh-oh, looks like it was a trap!");
+			System.out.println("A heavy potato hits you right in the head!");
+			double doubletemp = playerHealth;
+			playerHealth -= 2.0;
+			System.out.println(playerName + "'s health has dropped from " + doubletemp + " to " + playerHealth + "!");
+			checkDeath();
+		} else {
+			System.out.println("A VERY heavy potato drops harmlessly to the ground.");
+			System.out.println("Looks like you dodged a trap!");
+			System.out.println("...a pretty weird trap, buuuut...");
+			System.out.println("Well, whatever.");
+		}
+
+	}
+
+}

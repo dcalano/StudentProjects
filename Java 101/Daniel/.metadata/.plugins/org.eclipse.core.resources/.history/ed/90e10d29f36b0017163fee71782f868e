@@ -1,0 +1,33 @@
+package dannyscrapes;
+
+public class Scraper {
+	
+	public static final String[] KEYWORDS = {"and", "null"};
+	public static final String[] SCRAPE_LIST = {"https://en.wikipedia.org/wiki/Special:Random"};
+	public static int[][] WORD_COUNTS = new int[SCRAPE_LIST.length][KEYWORDS.length];
+	
+	public static void main(String[] args) throws InterruptedException {
+		
+		WebpageParser lastParser = null;
+		
+		for(int i = 0; i < SCRAPE_LIST.length; i++) {
+			WebpageParser parser = new WebpageParser(SCRAPE_LIST[i], i);
+			parser.start();
+			lastParser = parser;
+		}
+		
+		lastParser.join();
+		Thread.sleep(2000);
+		
+		for(int i = 0; i < WORD_COUNTS.length; i++) {
+			for(int j = 0; j < WORD_COUNTS[i].length; j++) {
+				
+				System.out.println("Occurences of " + KEYWORDS[j] + " on " + SCRAPE_LIST[i] + " is " + WORD_COUNTS[i][j]);
+				
+			}
+		}
+		
+		//print the lists
+		
+	}
+}

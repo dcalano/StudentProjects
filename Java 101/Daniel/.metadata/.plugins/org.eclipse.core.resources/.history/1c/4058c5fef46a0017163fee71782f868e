@@ -1,0 +1,10 @@
+package dannyssohawt;
+
+import javax.swing.JPanel;
+
+public class DannysSoHawt {
+	public static void main(String[] argumentos) {
+		JPanel panel = new JPanel();
+		panel.setVisible(true);
+	}
+}

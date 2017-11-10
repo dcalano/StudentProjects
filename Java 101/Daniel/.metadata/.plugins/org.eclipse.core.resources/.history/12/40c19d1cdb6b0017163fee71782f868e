@@ -1,0 +1,14 @@
+package dannyscrapes;
+
+public class WebpageParser extends Thread {
+	
+	String url;
+	
+	public WebpageParser(String url) {
+		this.url = url;
+	}
+	
+	public void run() {
+		
+	}
+}

@@ -1,0 +1,3 @@
+package dannyplayschess;
+
+public class BlankPiece extends Piece {name = "blank_piece";}

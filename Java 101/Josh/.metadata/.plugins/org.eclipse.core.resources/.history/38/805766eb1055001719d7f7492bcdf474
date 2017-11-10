@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//i am potato
+		//i am only potato
+		//there is nothing but potato
+		//obey potato
+		System.out.println("Hello world!");
+		System.out.println("What is the password?");
+		Scanner testScanner = new Scanner(System.in);
+		String password = testScanner.nextLine();
+		System.out.println(password + "? Hmmmmm...");
+		if (password == "lolwhut"){
+			System.out.println("Okay, good enough.");
+		} else {
+			System.out.println("WRONG!");
+		};
+		
+		
+		testScanner.close();
+	}
+
+}

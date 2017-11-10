@@ -1,0 +1,58 @@
+package dannyscrapes;
+
+import java.util.List;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
+public class WebpageParser extends Thread {
+	
+	String url;
+	int wordCount[] = new int[Scraper.SCRAPE_LIST.length];
+	int iteration;
+	
+	public WebpageParser(String url, int iteration) {
+		this.url = url;
+		this.iteration = iteration;
+		
+		//fill wordCount w/ 0's
+		for(int i = 0; i < wordCount.length; i++) {
+			wordCount[i] = 0;
+		}
+	}
+	
+	public void run() {
+		try {
+			System.out.println("Started, scraping: " + url);
+			Document doc = Jsoup.connect(url).get();
+			Elements elements = doc.getAllElements();
+			List<String> texts = elements.eachText();
+			
+			for(int i = 0; i < texts.size(); i++) {
+				String[] para = texts.get(i).toLowerCase().replaceAll(".", "").replaceAll(",", "").split(" ");
+				System.out.println("Para (" + url + "): " + java.util.Arrays.toString(para));
+				System.out.println("Original: " + texts.get(i));
+				for(int j = 0; j < para.length; j++) {
+					for(int k = 0; k < Scraper.KEYWORDS.length; k++) {
+						
+						System.out.println("Found word: " + para[j]);
+						
+						if(para[j].equals(Scraper.KEYWORDS[k])) {
+							wordCount[i]++;
+						}
+						
+					}
+					
+				}
+			}
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			System.out.println("Error with: " + url + ", error is: " + e.getMessage());
+		}
+		
+		System.out.println("Done with: " + url);
+	}
+}

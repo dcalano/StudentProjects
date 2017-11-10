@@ -1,0 +1,13 @@
+
+public class TalismanMaster extends Character {
+	
+	public TalismanMaster(String name) {
+		super(name, 9, 3, 5, 1, 1);
+	}
+	
+	public void specialAttack(Character enemy) {
+		int damage = this.strength * 3;
+		enemy.takeDamage(damage);
+		int damageDealt = enemy.takeDamage(damage);
+	}
+}

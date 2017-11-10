@@ -1,0 +1,54 @@
+package dannyssohawt;
+
+import java.awt.Color;
+import java.awt.Font;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+
+public class DannysSoHawt {
+	public static void main(String[] argumentos) throws Exception {
+		
+		//System.in.read();
+		System.out.write("Hi\u0001".getBytes());
+		
+		
+		JFrame frame = new JFrame();
+		frame.setTitle("random words");
+		frame.setSize(500, 500);
+		frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+		frame.setUndecorated(true);
+		
+		JLabel l = new JLabel("Danny", SwingConstants.CENTER);
+		l.setSize(100, 100);
+		l.setLocation(50, 250);
+		l.setFont(new Font("Arial", Font.BOLD, 145));
+		
+		frame.add(l);
+		
+		frame.setVisible(true);
+		
+		while(true) {
+			
+			Thread.sleep(500);
+			
+			l.setText("So");
+			
+			frame.getContentPane().setBackground(new Color((int)(Math.random() * 0x1000000)).brighter().brighter());
+			
+			Thread.sleep(500);
+			
+			l.setText("Hawt");
+			
+			frame.getContentPane().setBackground(new Color((int)(Math.random() * 0x1000000)).brighter().brighter());
+			
+			Thread.sleep(500);
+			
+			l.setText("Danny");
+			
+			frame.getContentPane().setBackground(new Color((int)(Math.random() * 0x1000000)).brighter().brighter());
+			
+		}
+	}
+}

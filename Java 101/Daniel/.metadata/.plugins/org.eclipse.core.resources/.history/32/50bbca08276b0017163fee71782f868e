@@ -1,0 +1,16 @@
+package dannyplayschess;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+
+public class DannyPlaysChess {
+
+	public static void main(String[] args) {
+		JFrame startFrame = new JFrame("Danny Plays Chess");
+		JButton[][] buttons = new JButton[8][8];
+		
+		startFrame.setSize(800, 800);
+		startFrame.setVisible(true);
+	}
+	
+}

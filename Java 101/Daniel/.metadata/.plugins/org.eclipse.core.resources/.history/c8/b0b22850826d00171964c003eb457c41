@@ -1,0 +1,28 @@
+package wikirandom;
+
+import java.util.List;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.select.Elements;
+
+public class WikiRandom {
+
+	static String[] randWordArr;
+	
+	public static void main(String[] args) throws Exception {
+		Document doc = Jsoup.connect("http://en.wikipedia.org/wiki/Jesus").get();
+		Elements els = doc.getAllElements();
+		String allText = "";
+		
+		for(int i = 0; i < els.size(); i++) {
+			allText += els.get(i).text();
+		}
+		
+        System.out.println(allText);
+	}
+	
+	public static String getRandWord() {
+		return randWordArr[(int)(Math.random() * randWordArr.length)];
+	}
+}

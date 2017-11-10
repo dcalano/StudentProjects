@@ -1,0 +1,28 @@
+package dannysbonelessprocessesing;
+
+import processing.core.PApplet;
+
+
+public class DannysBonelessProcessesing extends PApplet {
+
+	public void setup() {
+		System.out.println("OH HALLO");
+		size(700, 700);
+		background(0, 0, 0);
+	}
+
+	public void draw() {
+	}
+	
+    public void face(float xPos, float yPos) {
+        fill(0,149,185);
+        rect(xPos, yPos, 500, 300);
+        eyes(xPos + 100, yPos + 100);
+    }
+    
+    public void eyes(float eyesX, float eyesY) {
+        fill(255, 255, 255);
+        ellipse(eyesX, eyesY, 100, 100);
+        ellipse(eyesX + 300, eyesY, 25, 25);
+    }
+}

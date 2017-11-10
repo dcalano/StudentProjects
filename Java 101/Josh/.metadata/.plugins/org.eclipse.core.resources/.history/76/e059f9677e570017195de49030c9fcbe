@@ -1,0 +1,7 @@
+
+public class Talisman extends Character {
+	
+	public Talisman(String name) {
+		super(name, 10, 2, 3, 2, 3);
+	}
+}

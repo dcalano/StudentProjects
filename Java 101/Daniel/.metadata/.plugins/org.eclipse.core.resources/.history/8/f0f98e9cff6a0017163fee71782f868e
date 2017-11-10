@@ -1,0 +1,13 @@
+package dannysbonelessprocessesing;
+
+import processing.core.PApplet;
+
+
+public class DannysBonelessProcessesing extends PApplet {
+
+	public void setup() {
+	}
+
+	public void draw() {
+	}
+}

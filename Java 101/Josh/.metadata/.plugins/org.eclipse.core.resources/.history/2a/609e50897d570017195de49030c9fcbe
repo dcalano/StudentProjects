@@ -1,0 +1,10 @@
+
+public class FaerieWitch extends Character {
+	public FaerieWitch(){
+		super();
+		this.strength = 2;
+		this.defense = 3;
+		
+	}
+
+}

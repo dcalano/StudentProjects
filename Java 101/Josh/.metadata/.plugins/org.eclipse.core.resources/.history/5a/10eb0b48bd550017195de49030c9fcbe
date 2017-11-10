@@ -1,0 +1,26 @@
+import java.util.Scanner;
+public class Adventure {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int playerLevel = 1;
+		String playerName = "Horatio";
+		double playerHealth = 10.0;
+		Scanner userInpt = new Scanner(System.in);
+		System.out.println("What is your character's name?");
+		playerName = userInpt.nextLine();
+		System.out.println("Welcome, " + playerName + ".");
+		System.out.println("Before you lies a forest made of candy.");
+		System.out.println("Do you enter? (Y/N)");
+		String temp = userInpt.nextLine();
+		while (!temp.equals("Y")){
+			System.out.println("I don't think I heard you right.");
+			System.out.println("What I SAID was, DO YOU ENTER?");
+			System.out.println("HINT: THE CORRECT ANSWER IS 'Y'.");
+			temp = userInpt.nextLine();
+		}
+		System.out.println("Now, THAT'S what I like to hear.");
+
+	}
+
+}

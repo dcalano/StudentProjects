@@ -1,0 +1,17 @@
+package followalong;
+
+public class FollowAlong {
+
+	public static void main(String args[]) {
+		
+		int x = 1;
+		char y = 'y';
+		String z = "string";
+		
+		System.out.println(x);
+		System.out.println(y);
+		System.out.println(z);
+		System.out.println(true);
+	}
+	
+}

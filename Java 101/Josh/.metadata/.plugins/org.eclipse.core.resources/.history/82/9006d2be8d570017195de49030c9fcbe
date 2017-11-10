@@ -1,0 +1,11 @@
+
+public class TalismanMaster extends Character {
+	
+	public TalismanMaster(String name) {
+		super(name, 10, 2, 3, 2, 3);
+	}
+	
+	public void specialAttack(Character enemy) {
+		
+	}
+}

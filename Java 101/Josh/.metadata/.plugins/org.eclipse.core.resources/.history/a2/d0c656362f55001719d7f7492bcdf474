@@ -1,0 +1,15 @@
+import java.util.Scanner;
+public class Adventure {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int playerLevel = 1;
+		String playerName = "Horatio";
+		double playerHealth = 10.0;
+		Scanner userInpt = new Scanner(System.in);
+		System.out.println("What is your character's name?");
+		playerName = userInpt.nextLine();
+
+	}
+
+}

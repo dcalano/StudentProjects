@@ -1,0 +1,24 @@
+
+public class Character {
+		// TODO Auto-generated method stub
+		public int health;
+		public int strength;
+		public int defense;
+		public int evasion;
+		public int critrate;
+		
+		public Character(int hp, int str, int def, int dodge, int crit){
+			this.name = name;
+			this.health = hp;
+			this.strength = str;
+			this.defense = def;
+			this.evasion = dodge;
+			this.critrate = crit;
+		}
+		
+		public int takeDamage(int damage){
+			int damageTaken = damage - this.defense;
+			this.health -= damageTaken;
+			return damageTaken;
+		}
+}

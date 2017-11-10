@@ -1,0 +1,31 @@
+package dannyplayschess;
+
+public class Pawn extends Piece {
+
+	public Pawn(int x, int y) {
+		super(x, y);
+		this.name = "Pawn";
+	}
+
+	public static final int Y_MOVE = 1;
+	public static final int X_MOVE = 1;
+	
+	boolean canMove(short x, short y) {
+		
+		//check if it's blank
+		/*if(!Board.getPieceAt(x, y).getName().equals("blank_piece") 
+				&& Board.getPieceAt(x, y).isUserTeam() != this.team) {
+			
+			return true;
+			
+		}*/
+		
+		//pawn can take a piece diagonally (to the right)
+		if(x == this.getX() + 1 && x == this.getY() + 1 && !Board.getPieceAt(x, y).getName().equals("blank_piece")) {
+			
+		}
+		
+		return false;
+	}
+	
+}

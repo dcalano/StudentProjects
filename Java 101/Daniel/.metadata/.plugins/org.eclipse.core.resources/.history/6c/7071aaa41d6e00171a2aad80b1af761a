@@ -1,0 +1,67 @@
+package wikirandom;
+
+import java.awt.Color;
+import java.awt.Font;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+
+public class WikiRandom {
+
+	
+	static List<String> foundStrs = new ArrayList<>();
+	
+	public static void main(String[] args) throws Exception {
+		
+		ArticleParser parser1, parser2;
+		
+		JFrame frame = new JFrame();
+		frame.setTitle("random words");
+		frame.setSize(500, 500);
+		frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+		frame.setUndecorated(true);
+		
+		JLabel l = new JLabel("Loading...", SwingConstants.CENTER);
+		l.setSize(100, 100);
+		l.setLocation(50, 250);
+		l.setFont(new Font("Arial", Font.BOLD, 145));
+		
+		frame.add(l);
+		
+		frame.setVisible(true);
+		
+		
+		Color color;
+		while(true) {
+			
+			parser1 = new ArticleParser("http://en.wikipedia.org/wiki/" + ArticleParser.getRandWord());
+			
+			color = new Color((int)(Math.random() * 0x1000000)).brighter().brighter();
+			
+			l.setText(ArticleParser.mostPop);
+			l.setForeground(new Color(0, 0, 0));
+			
+			frame.getContentPane().setBackground(color);
+			Thread.sleep(5000);
+			
+//			parser2 = new ArticleParser("http://en.wikipedia.org/wiki/" + getRandWord());
+//			
+//			
+//			color = new Color((int)(Math.random() * 0x1000000)).brighter().brighter();
+//			
+//			Thread.sleep(500);
+//			
+//			l.setText(ArticleParser.mostPop);
+//			l.setForeground(new Color(0, 0, 0));
+//			
+//			frame.getContentPane().setBackground(color);
+			
+		}
+	}
+}

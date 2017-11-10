@@ -1,0 +1,10 @@
+package dannyscrapes;
+
+public class Scraper {
+	
+	public static final String[] KEYWORDS = {"obesity", "lmao"};
+	
+	public static void main() {
+		
+	}
+}

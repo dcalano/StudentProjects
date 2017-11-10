@@ -1,0 +1,33 @@
+package dannyssohawt;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+public class DannysSoHawt {
+	public static void main(String[] argumentos) throws Exception {
+		JFrame frame = new JFrame();
+		frame.setSize(500, 500);
+		
+		JLabel l = new JLabel("Danny");
+
+
+		frame.add(l);
+		
+		frame.setVisible(true);
+		
+		while(true) {
+			
+			Thread.sleep(500);
+			
+			l.setText("So");
+			
+			Thread.sleep(500);
+			
+			l.setText("Hawt");
+			
+			Thread.sleep(500);
+			
+			l.setText("Danny");
+		}
+	}
+}

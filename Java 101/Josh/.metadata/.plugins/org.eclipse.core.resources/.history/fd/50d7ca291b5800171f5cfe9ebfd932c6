@@ -1,0 +1,11 @@
+
+public class Enemy extends Character {
+
+	public Enemy(String name) {
+		super(name, 100, 4, 1, 1, 1);
+	}
+	public void specialAttack(Character player) {
+		System.out.println(this.name + " fires off a barrage of spells!");
+		
+	}
+}

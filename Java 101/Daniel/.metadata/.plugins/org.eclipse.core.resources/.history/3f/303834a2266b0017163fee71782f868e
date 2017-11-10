@@ -1,0 +1,9 @@
+package dannyplayschess;
+
+public class DannyPlaysChess {
+
+	public static void main(String[] args) {
+		
+	}
+	
+}

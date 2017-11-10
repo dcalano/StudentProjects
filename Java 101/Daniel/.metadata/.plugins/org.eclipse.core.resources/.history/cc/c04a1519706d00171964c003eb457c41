@@ -1,0 +1,21 @@
+package dannydrives;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+public class DannyDrives {
+
+	public static void main(String[] n) {
+		JFrame mainFrame = new JFrame("Danny Drives");
+
+		mainFrame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+		mainFrame.setUndecorated(true);
+		
+		JLabel driver = new JLabel(new ImageIcon("driver.svg"));
+		mainFrame.add(driver);
+		
+		mainFrame.setVisible(true);
+	}
+	
+}

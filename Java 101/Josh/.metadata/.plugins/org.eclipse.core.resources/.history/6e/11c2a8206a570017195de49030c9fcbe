@@ -1,0 +1,7 @@
+
+public class FaerieWitch extends Character {
+	public FaerieWitch(){
+		super();
+	}
+
+}

@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//i am potato
+		//i am only potato
+		//there is nothing but potato
+		//obey potato
+		System.out.println("Hello world! Potato will now destroy you.");
+		System.out.println("What is name of human to be DESTROYED?");
+		Scanner testScanner = new Scanner(System.in);
+		String name = testScanner.nextLine();
+		System.out.println(name + "? Hmmmmm...");
+		System.out.println("BAD NAME! DESTROY!!!!");
+		
+		
+		
+		testScanner.close();
+	}
+
+}

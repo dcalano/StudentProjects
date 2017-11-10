@@ -1,0 +1,19 @@
+package dannyplayschess;
+
+public class Board {
+
+	private static Piece[][] chessBoard = {
+			{},
+			{new Pawn(1, 0)},
+			{},
+			{},
+			{},
+			{},
+			{},
+			{}
+	};
+	
+	public static Piece getPieceAt(int x, int y) {
+		return chessBoard[x][y];
+	}
+}

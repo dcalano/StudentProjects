@@ -1,0 +1,16 @@
+
+public class Character {
+	public String name;
+	public int strength;
+	public int health;
+	public int defense;
+	public int takeDamage(int damage){
+		int damageTaken = damage - this.defense;
+		this.health -= damageTaken;
+		return damageTaken;
+	}
+	public int attack(Character target){
+		
+	}
+	
+}

@@ -1,0 +1,15 @@
+package dannyplayschess;
+
+public class Pawn extends Piece {
+	
+	public static final short X_MOVE = 0;
+	public static final short Y_MOVE = 1;
+	
+	boolean canMove(short x, short y) {
+		
+		//if(){}
+		
+		return null;
+	}
+	
+}

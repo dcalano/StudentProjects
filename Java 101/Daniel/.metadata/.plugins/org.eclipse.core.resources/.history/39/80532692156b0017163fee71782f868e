@@ -1,0 +1,13 @@
+package dannyplayschess;
+
+public class Board {
+
+	public Piece[][] chessBoard = {
+			{},
+			{},
+			{},
+			{},
+			{},
+	};
+	
+}

@@ -1,0 +1,7 @@
+
+public class Diviner extends Character {
+	
+	public Diviner(String name) {
+		super(name, 10, 2, 3, 2, 3);
+	}
+}

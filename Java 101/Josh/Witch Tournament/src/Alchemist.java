@@ -1,0 +1,15 @@
+
+public class Alchemist extends Character {
+	
+	public Alchemist(String name) {
+		super(name, 100, 4, 4, 1, 1);
+	}
+	
+	public void specialAttack(Character enemy) {
+		System.out.println("You drink a healing potion, restoring your health.");
+		this.health += (Math.round(0.1 * this.health));
+		if (this.health > this.maxHealth) {
+			this.health = this.maxHealth;
+		}
+	}
+}

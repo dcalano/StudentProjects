@@ -1,0 +1,50 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner userInput = new Scanner(System.in);
+		
+		System.out.println("W I T C H  T O U R N A M E N T");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("Every ten years, witches from around the world gather to crown the new High Witch.");
+		System.out.println("The High Witch is the most powerful, and he or she rules over all witches across the globe.");
+		System.out.println("Candidates participate in a battle tournament, and the champion will battle the current High Witch.");
+		System.out.println("If the challenger claims victory, she or he will be crowned as the newest High Witch.");
+		System.out.println("This year, you have been chosen as a candidate.");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("What is your name?");
+		String name = userInput.nextLine();
+		System.out.println("Welcome, " + name + ".");
+		System.out.println("Now, choose a class:");
+		
+	}
+	public static void classMenu() {
+		System.out.println("Select a class by inputting the correct letter:");
+		System.out.println("a. Faerie Witch (increased critical hit chance)");
+		System.out.println("b. Alchemist (extra potion effects)");
+		System.out.println("c. Diviner (increased evasion rate)");
+		System.out.println("d. Talisman Master (increased defence)");
+		Scanner choiceInput = new Scanner(System.in);
+		char choice = choiceInput.nextChar();
+		switch (choice){
+		case 'a':
+			System.out.println("You are a witch who bonds with faeries. Trickery, stealth, and mischief come easily.");
+			break;
+		case 'b':
+			System.out.print("You specialize in potions and brews.");
+			break;
+		case 'c':
+			System.out.print("You have a gift for prophecy, seeing events and attacks before they happen.");
+			break;
+		case 'd':
+			System.out.print("You carry enchanted talismans with you that help protect you from magic and curses.");
+		}
+				
+	}
+	  
+
+}

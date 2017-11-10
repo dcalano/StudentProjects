@@ -1,0 +1,11 @@
+
+public class Diviner extends Character {
+	
+	public Diviner(String name) {
+		super(name, 100, 3, 3, 3, 1);
+	}
+	
+	public void specialAttack(Character enemy) {
+		System.out.println("TODO");
+	}
+}

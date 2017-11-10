@@ -1,0 +1,7 @@
+
+public class Alchemist extends Character {
+	
+	public Alchemist(String name) {
+		super(name, 10, 2, 3, 2, 3);
+	}
+}

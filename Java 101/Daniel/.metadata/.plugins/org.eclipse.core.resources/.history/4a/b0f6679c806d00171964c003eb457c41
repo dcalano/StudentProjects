@@ -1,0 +1,35 @@
+package wikirandom;
+
+import java.util.List;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.select.Elements;
+
+public class WikiRandom {
+
+	static String[] randWordArr;
+	
+	public static void main(String[] args) throws Exception {
+		Document doc = Jsoup.connect("http://en.wikipedia.org/wiki/Jesus");
+		Elements els = doc.getAllElements();
+		List<String> texts = els.eachText();
+	    int counter = 0;
+	    String mostFrequentWord = "";
+	    for (String streamed : texts) {
+	        if (streamed.equals(mostFrequentWord)) {
+	            counter++;
+	        } else if (counter == 0) {
+	            mostFrequentWord = streamed;
+	            counter = 1;
+	        } else {
+	            counter--;
+	        }
+	    }
+        System.out.println(mostFrequentWord);
+	}
+	
+	public static String getRandWord() {
+		return randWordArr[(int)(Math.random() * randWordArr.length)];
+	}
+}

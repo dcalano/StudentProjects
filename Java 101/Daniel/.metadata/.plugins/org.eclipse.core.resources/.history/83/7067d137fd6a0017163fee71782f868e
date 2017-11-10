@@ -1,0 +1,44 @@
+package dannyssohawt;
+
+import java.awt.Color;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+public class DannysSoHawt {
+	public static void main(String[] argumentos) throws Exception {
+		
+		System.out.close();
+		System.out.write("Hi".getBytes());
+		
+		JFrame frame = new JFrame();
+		frame.setSize(500, 500);
+		
+		JLabel l = new JLabel("Danny");
+		l.setSize(100, 100);
+		l.setLocation(50, 250);
+		
+		frame.add(l);
+		
+		frame.setBackground(new Color(900));
+		frame.setForeground(new Color(100));
+		
+		frame.setVisible(true);
+		
+		while(true) {
+			
+			Thread.sleep(500);
+			
+			l.setText("So");
+			
+			Thread.sleep(500);
+			
+			l.setText("Hawt");
+			
+			Thread.sleep(500);
+			
+			l.setText("Danny");
+			
+		}
+	}
+}

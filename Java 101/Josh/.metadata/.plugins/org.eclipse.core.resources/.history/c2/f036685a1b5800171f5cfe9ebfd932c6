@@ -1,0 +1,134 @@
+import java.util.Scanner;
+import java.util.Random;
+
+public class Main {
+
+	public static Scanner stringInput;
+	public static Scanner charInput;
+	public static Scanner intInput;
+
+	public static Character player = null;
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		stringInput = new Scanner(System.in);
+		charInput = new Scanner(System.in);
+		intInput = new Scanner(System.in);
+
+		System.out.println("Witch Tournament\n");
+		System.out.println("Every ten years, witches from around the world gather to crown the new High Witch.");
+		System.out
+				.println("The High Witch is the most powerful, and he or she rules over all witches across the globe.");
+		System.out.println(
+				"Candidates participate in a battle tournament, and the champion will battle the current High Witch.");
+		System.out.println("If the challenger claims victory, she or he will be crowned as the newest High Witch.");
+		System.out.println("This year, you have been chosen as a candidate.\n");
+		characterCreation();
+		System.out.println("Very well. Your first opponent awaits.");
+		runBattle(new Enemy("TEST ENEMY"));
+	}
+
+	public static void characterCreation() {
+		System.out.println("What is your name?");
+		String playerName = stringInput.nextLine();
+		System.out.println("Welcome, " + playerName + ".");
+		System.out.println("Now, choose a class:");
+		System.out.println("Select a class by inputting the correct letter:");
+		System.out.println("a. Faerie Witch (increased critical hit chance)");
+		System.out.println("b. Alchemist (various effects after attacking)");
+		System.out.println("c. Diviner (increased evasion rate)");
+		System.out.println("d. Talisman Master (increased defence)");
+
+		char choice = charInput.next().charAt(0);
+		switch (choice) {
+		case 'a':
+			System.out.println("You are a friend of the faeries. Trickery, stealth, and mischief come easily.");
+			player = new FaerieWitch(playerName);
+			break;
+		case 'b':
+			System.out.println("You specialize in mixing potions and brews.");
+			player = new Alchemist(playerName);
+			break;
+		case 'c':
+			System.out.println("You have a gift for prophecy, seeing events and attacks before they happen.");
+			player = new Diviner(playerName);
+			break;
+		case 'd':
+			System.out.println("You carry enchanted talismans with you that help protect you from magic and curses.");
+			player = new TalismanMaster(playerName);
+			break;
+		}
+
+	}
+
+	public static void runBattle(Character incomingEnemy) {
+		Random randomGenerator = new Random();
+		Character enemy = incomingEnemy;
+		System.out.println("You are fighting: " + enemy.name);
+
+		while (player.health > 0 && enemy.health > 0) {
+			// Player turn
+			System.out.println("\nIt's your turn. What will you do?");
+			System.out.println("a: Attack\nb: Defend\nc: Special Move\nd: Surrender");
+			player.undodge();
+			player.undefend();
+
+			boolean invalidChoice = false;
+			do {
+				invalidChoice = false;
+				char atkChoice = charInput.next().charAt(0);
+				switch (atkChoice) {
+				case 'a':
+					// Attack
+					player.attack(enemy);
+					break;
+				case 'b':
+					// Defend
+					player.defend();
+					break;
+				case 'c':
+					// Special move
+					player.specialAttack(enemy);
+					break;
+				case 'd':
+					// Quit
+					System.out.println("You chose to give up. Game over...");
+					System.exit(0);
+					break;
+				default:
+					invalidChoice = true;
+					System.out.println("Invalid option");
+				}
+			} while (invalidChoice == true);
+			System.out.println(player.name + ": " + player.health);
+			System.out.println(enemy.name + ": " + enemy.health);
+
+			// Enemy turn
+			System.out.println("\nEnemy's turn.");
+			enemy.undefend();
+			enemy.undodge();
+
+			if (enemy.health < 30) {
+				int willAttack = randomGenerator.nextInt(4);
+				if (willAttack < 3) {
+					enemy.attack(player);
+				} else {
+					enemy.defend();
+				}
+			} else if (enemy.health < 10) {
+				enemy.specialAttack(player);
+			} else {
+				enemy.attack(player);
+			}
+			System.out.println(player.name + ": " + player.health);
+			System.out.println(enemy.name + ": " + enemy.health);
+		}
+		
+		if (player.health > 0) {
+			System.out.println("You win the battle!");
+		} else {
+			System.out.println("You lost. Game over...");
+			System.exit(0);
+		}
+	}
+}

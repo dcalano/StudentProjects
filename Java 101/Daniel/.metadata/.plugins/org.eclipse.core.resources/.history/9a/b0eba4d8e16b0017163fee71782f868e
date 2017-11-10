@@ -1,0 +1,29 @@
+package dannyscrapes;
+
+public class Scraper {
+	
+	public static final String[] KEYWORDS = {"obesity", "lmao"};
+	public static final String[] SCRAPE_LIST = {"http://en.wikipedia.org", "http://google.com"};
+	public static int[][] WORD_COUNTS = new int[SCRAPE_LIST.length][KEYWORDS.length];
+	
+	public static void main(String[] args) throws InterruptedException {
+		
+		WebpageParser lastParser = null;
+		
+		for(int i = 0; i < SCRAPE_LIST.length; i++) {
+			WebpageParser parser = new WebpageParser(SCRAPE_LIST[i], i);
+			parser.start();
+			lastParser = parser;
+		}
+		
+		lastParser.join();
+		Thread.sleep(3000);
+		
+		
+		
+		System.out.println(WORD_COUNTS[0][0]);
+		
+		//print the lists
+		
+	}
+}

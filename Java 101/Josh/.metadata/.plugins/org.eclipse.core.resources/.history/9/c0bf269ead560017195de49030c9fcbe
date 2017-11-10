@@ -1,0 +1,52 @@
+
+
+public class Character {
+	public String name;
+	public int strength;
+	public int health;
+	public int defense;
+	public static String[] nameList = {"Pantalaimon", "Iorek", "Stelmaria", "Ratter", "Kaisa"};
+	public Character() {
+		this.name = nameList[Arena.generator.nextInt(nameList.length)];
+	}
+	
+	public Character(String name, int str, int def, int health) {
+		this.name = name;
+        this.strength = str;
+        this.defense = def;
+        this.health = health;
+    }
+	
+	public Character(int str, int def, int health) {
+        this();
+        this.strength = str;
+        this.defense = def;
+        this.health = health;
+    }
+	
+	// Display my stats
+	public void displayMyStats() {
+		System.out.println("Player Name: " + this.name);
+		System.out.println("Player Strength: " + this.strength);
+		System.out.println("Player Defense: " + this.defense);
+		System.out.println("Player HP: " + this.health);
+	}
+	
+	
+	public int takeDamage(int damage){
+		int damageTaken = damage - this.defense;
+		this.health -= damageTaken;
+		return damageTaken;
+	}
+	
+	public int attack(Character target){
+		int damage = this.strength * 2;
+		target.takeDamage(damage);
+		int damageDealt = target.takeDamage(damage);
+		return damageDealt;
+	}
+	public boolean isAlive(){
+		return this.health > 0;
+	}
+	
+}

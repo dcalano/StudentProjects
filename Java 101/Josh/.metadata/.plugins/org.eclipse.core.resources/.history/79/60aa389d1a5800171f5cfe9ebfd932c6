@@ -1,0 +1,78 @@
+
+public abstract class Character {
+		public int health;
+		public int strength;
+		public int defense;
+		public int evasion;
+		public int critrate;
+		public String name;
+		public boolean isDefending = false;
+		public boolean isDodging = false;
+		public boolean isPowered = false;
+		
+		public Character(String name, int hp, int str, int def, int dodge, int crit){
+			this.name = name;
+			this.health = hp;
+			this.strength = str;
+			this.defense = def;
+			this.evasion = dodge;
+			this.critrate = crit;
+		}
+		
+		public void displayMyStats() {
+			System.out.println("Player Name: " + this.name);
+			System.out.println("Player Strength: " + this.strength);
+			System.out.println("Player Defense: " + this.defense);
+			System.out.println("Player HP: " + this.health);
+		}
+		
+		public int takeDamage(int damage){
+			int damageTaken = 0;
+			if (isDefending) {
+				damageTaken = damage - (this.defense * 2);
+			} else if (isDodging){
+				damageTaken = 0;
+				System.out.println(this.name + " dodged!");
+			} else {
+				damageTaken = damage - this.defense;
+			}
+			
+			if (damageTaken < 0) {
+				damageTaken = 0;
+			}
+			
+			this.health -= damageTaken;
+			System.out.println(this.name + " takes " + damageTaken + " damage.");
+			return damageTaken;
+		}
+		
+		public int attack(Character target){
+			if (isPowered) {
+				int damage = this.strength * 3;
+				int damageDealt = target.takeDamage(damage);
+				System.out.println(this.name + " fires a spell at " + target.name + " for " + damageDealt + " damage!");	
+			} else {
+				int damage = this.strength * 2;
+				int damageDealt = target.takeDamage(damage);
+				System.out.println(this.name + " fires a spell at " + target.name + ".");
+			}
+			
+			return damageDealt;
+		}
+		
+		public void defend() {
+			this.isDefending = true;
+		}
+		
+		public void undefend() {
+			this.isDefending = false;
+		}
+		public void superdodge() {
+			this.isDodging = true;
+		}
+		public void undodge() {
+			this.isDodging = false;
+		}
+		
+		public abstract void specialAttack(Character enemy);
+}

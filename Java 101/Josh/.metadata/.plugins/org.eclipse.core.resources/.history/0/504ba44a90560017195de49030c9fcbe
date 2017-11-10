@@ -1,0 +1,38 @@
+import java.util.Random;
+public class Arena {
+	public static Random generator = new Random();
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Character player1 = new Character();
+		Character player2 = new Character();
+		player1.name = "Pantalaimon";
+		player1.health = 50;
+		player1.strength = 2;
+		player1.defense = 4;
+		player2.name = "Stelmaria";
+		player2.health = 50;
+		player2.strength = 4;
+		player2.defense = 2;
+		System.out.println(player1.name + " vs " + player2.name);
+		System.out.println(player1.health + " vs " + player2.health);
+		while (player1.isAlive() && player2.isAlive()){
+			int damage;
+			System.out.println(player1.name + ": " + player1.health);
+			System.out.println(player2.name + ": " + player2.health);
+			damage = player1.attack(player2);
+			System.out.println(player1.name + " deals " + damage + " damage to " + player2.name + "!");
+			damage = player2.attack(player1);
+			System.out.println(player2.name + " deals " + damage + " damage to " + player1.name + "!");
+		}
+		if (player1.isAlive()){
+			System.out.println(player1.name + "is victorious.");
+		} else if (player2.isAlive()){
+			System.out.println(player2.name + "is victorious.");
+		} else {
+			System.out.println("It's a draw.");
+		}
+
+	}
+
+}
